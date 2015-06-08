@@ -1,0 +1,24 @@
+EXPIREBV
+==========================================================================
+EXPIREBV is used to delete all unneeded HSM dataset backups and ABARS.  There are a few additional parameters you can use
+   besides "display" or "execute" as I do below, but for the most part if you are deleting these types of data, you probably rarely
+   want to just do nonsms versions by themselves, ABARS alone, or start and end at a certain key.
+
+HSEND EXPIREBV DISPLAY - Display the datasets to be expired before actually "doing the deed".
+HSEND EXPIREBV EXECUTE - Actually remove the datasets.
+
+Audit Command
+==========================================================================
+Audit is used to check for problems on the CDS (control dataset) and SDSP (small dataset packing datasets).
+We haven't fully utilized SDSP in my shop ever actually, but the commands for auditing and fixing issues with SDSP are:
+
+HSEND AUDIT MEDCTL(SDSP) VOLUMES(######) NOFIX ODS('some generic dataset')
+HSEND AUDIT MEDCTL(SDSP) VOLUMES(######) FIX ODS('some generic dataset')
+
+To audit and then fix CDS issues (BCDS, MCDS, or OCDS):
+HSEND AUDIT BCDS NOFIX ODS('some generic dataset')
+HSEND AUDIT BCDS NOFIX ODS('some generic dataset')
+
+
+
+
